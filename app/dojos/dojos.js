@@ -11,4 +11,15 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
 
 .controller('DojosCtrl', ['$scope', function($scope) {
 
+   $scope.dojo = {
+       name: "",
+	description: "",
+
+};
+
+   $scope.dojos = [];
+
+   $scope.add = function(){ 
+	$scope.dojos.push($scope.dojo) }
+
 }]);
