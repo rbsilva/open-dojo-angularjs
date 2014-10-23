@@ -9,6 +9,16 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
   });
 }])
 
-.controller('DojosCtrl', ['$scope', function($scope) {
+.controller('DojosCtrl', ['$scope', '$http', function($scope, $http) {
+
+  $scope.items = [];
+
+  $scope.addDojo = function () {
+    $http.post('/api/dojos', $scope.dojo);
+
+    $http.get('/api/dojos').success(function(response){
+      $scope.items.push(response);
+    });
+  }
 
 }]);
