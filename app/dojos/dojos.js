@@ -9,16 +9,29 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
   });
 }])
 
-.controller('DojosCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('DojosCtrl', ['$scope', 'Dojo', function($scope, Dojo) {
 
   $scope.items = [];
 
-  $scope.addDojo = function () {
-    $http.post('/api/dojos', $scope.dojo);
 
-    $http.get('/api/dojos').success(function(response){
-      $scope.items.push(response);
+  $scope.load = function(){
+    Dojo.query(function(response){
+      $scope.items = response.data;
     });
   }
 
+  $scope.addDojo = function () {
+    Dojo.save($scope.dojo, function() {
+      $scope.errorMessage = null;
+      $scope.load();
+    
+    }, function(response){
+      $scope.errorMessage = "Server is down";
+    });
+  }
+
+  $scope.load();
+
+}]).factory('Dojo', ['$resource', function($resource){
+  return $resource('/api/dojos/:dojoId', {dojoId:'@id'}, {'query': {method: 'GET', isArray:false}});
 }]);

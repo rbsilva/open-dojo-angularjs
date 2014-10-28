@@ -3,9 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('ciandtDojos', [
   'ngRoute',
+  'ngResource',
   'ciandtDojos.dojos',
   'ciandtDojos.version',
-  'ciandtDojos.development',
+  'ciandtDojos.development'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dojos'});
