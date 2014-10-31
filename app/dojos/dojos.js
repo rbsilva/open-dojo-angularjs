@@ -11,12 +11,12 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
 
 .controller('DojosCtrl', ['$scope', 'Dojo', function($scope, Dojo) {
 
-  $scope.items = [];
+  $scope.dojos = [];
 
 
   $scope.load = function(){
     Dojo.query(function(response){
-      $scope.items = response.data;
+      $scope.dojos = response.data;
     });
   }
 
@@ -24,7 +24,7 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
     Dojo.save($scope.dojo, function() {
       $scope.errorMessage = null;
       $scope.load();
-    
+
     }, function(response){
       $scope.errorMessage = "Server is down";
     });

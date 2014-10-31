@@ -37,7 +37,7 @@
         });
 
         $httpBackend.whenPOST(resourcesRegexUrl).respond(function(method, url, data) {
-          return [500, fixture.create(angular.fromJson(data)), {}];
+          return [200, fixture.create(angular.fromJson(data)), {}];
         });
 
         $httpBackend.whenPUT(resourceRegexUrl).respond(function(method, url, data) {
@@ -47,6 +47,8 @@
       };
 
       mock('dojos');
+
+      mock('senseis');
 
       $httpBackend.whenGET('/api/sessions').respond({});
 

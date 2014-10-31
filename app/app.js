@@ -5,6 +5,7 @@ angular.module('ciandtDojos', [
   'ngRoute',
   'ngResource',
   'ciandtDojos.dojos',
+  'ciandtDojos.senseis',
   'ciandtDojos.version',
   'ciandtDojos.development'
 ]).

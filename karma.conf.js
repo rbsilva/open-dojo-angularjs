@@ -10,9 +10,10 @@ module.exports = function(config){
 
       'components/development/app-development.js',
       'components/development/fixtures-service.js',
-
+      'app/bower_components/angular-resource/angular-resource.js',
       'app/components/**/*.js',
-      'app/dojos/**/*.js'
+      'app/dojos/**/*.js',
+      'app/senseis/**/*.js'
     ],
 
     autoWatch : true,

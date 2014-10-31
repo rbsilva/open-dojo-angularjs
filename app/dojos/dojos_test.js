@@ -5,6 +5,7 @@ describe('ciandtDojos.dojos module', function() {
 
     beforeEach(module('ciandtDojos.dojos'));
     beforeEach(module('ciandtDojos.development'));
+    beforeEach(module('ngResource'));
 
     DojosCtrl = {};
     fixtures = {};

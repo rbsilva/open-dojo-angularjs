@@ -27,4 +27,21 @@ describe('my app', function() {
     });
 
   });
+
+    describe('senseis', function() {
+
+      beforeEach(function() {
+        browser.get('index.html#/senseis');
+      });
+
+      it('should add a sensei to grid', function() {
+        element(by.model('sensei.name')).sendKeys("teste");
+        element(by.model('sensei.login')).sendKeys("teste");
+        element(by.id('add')).click();
+        expect(element.all(by.css('[ng-view] td')).then(function(items) {
+          expect(items[1].getText()).toBe('teste');
+        }));
+      });
+
+    });
 });
