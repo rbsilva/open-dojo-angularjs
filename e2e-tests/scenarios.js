@@ -37,9 +37,13 @@ describe('my app', function() {
       it('should add a sensei to grid', function() {
         element(by.model('sensei.name')).sendKeys("teste");
         element(by.model('sensei.login')).sendKeys("teste");
+        element(by.model('sensei.knowledges')).sendKeys("angular");
         element(by.id('add')).click();
         expect(element.all(by.css('[ng-view] td')).then(function(items) {
+
           expect(items[1].getText()).toBe('teste');
+          expect(items[2].getText()).toBe('teste');
+          expect(items[3].getText()).toBe('angular');
         }));
       });
 
