@@ -33,4 +33,17 @@ angular.module('ciandtDojos.senseis', ['ngRoute'])
 
 }]).factory('Sensei', ['$resource', function($resource){
   return $resource('/api/senseis/:senseiId', {senseiId:'@id'}, {'query': {method: 'GET', isArray:false}});
+}]).directive('notAllowed', ['$http', function($http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(attrs.ngModel, function() {
+        if (c.$viewValue != attrs.notAllowed) {
+          c.$setValidity('allowed', true);
+        } else {
+          c.$setValidity('allowed', false);
+        };
+      });
+    }
+  }
 }]);
