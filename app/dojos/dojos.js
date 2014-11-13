@@ -13,22 +13,24 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
 
   $scope.dojos = [];
 
-
   $scope.load = function(){
     Dojo.query(function(response){
       $scope.dojos = response.data;
     });
   }
 
-  $scope.addDojo = function () {
+  $scope.addDojo = function (valid) {
     $scope.submitted = true;
-    Dojo.save($scope.dojo, function() {
-      $scope.errorMessage = null;
-      $scope.load();
 
-    }, function(response){
-      $scope.errorMessage = "Server is down";
-    });
+    if (valid) {
+      Dojo.save($scope.dojo, function() {
+        $scope.errorMessage = null;
+        $scope.load();
+
+      }, function(response){
+        $scope.errorMessage = "Server is down";
+      });
+    }
   }
 
   $scope.load();
