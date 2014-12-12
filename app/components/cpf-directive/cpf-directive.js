@@ -12,7 +12,7 @@
             return viewValue;
           } else {
             ctrl.$setValidity('cpf', false);
-            return undefined;
+            return viewValue;
           };
         });
 

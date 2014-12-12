@@ -20,8 +20,6 @@ angular.module('ciandtDojos.dojos', ['ngRoute'])
   }
 
   $scope.addDojo = function (valid) {
-    $scope.submitted = true;
-
     if (valid) {
       Dojo.save($scope.dojo, function() {
         $scope.errorMessage = null;

@@ -1,0 +1,5 @@
+<label for="{{inputName}}" class="col-sm-3 control-label">{{label}}</label>
+<div class="col-sm-8">
+  <input ng-model="model" type="text" class="form-control"/>
+  <span class="error" ng-show="inputForm[inputName].$error.required">Required!</span><br>
+</div>

@@ -18,8 +18,8 @@ describe('my app', function() {
     });
 
     it('should add a dojo to grid', function() {
-      element(by.model('dojo.name')).sendKeys("teste");
-      element(by.model('dojo.description')).sendKeys("teste");
+      element(by.name('name')).sendKeys("teste");
+      element(by.name('dojoDescription')).sendKeys("teste");
       element(by.id('add')).click();
       expect(element.all(by.css('[ng-view] td')).then(function(items) {
         expect(items[1].getText()).toBe('teste');
@@ -35,9 +35,9 @@ describe('my app', function() {
       });
 
       it('should add a sensei to grid', function() {
-        element(by.model('sensei.name')).sendKeys("teste");
-        element(by.model('sensei.login')).sendKeys("teste");
-        element(by.model('sensei.knowledges')).sendKeys("angular");
+        element(by.name('name')).sendKeys("teste");
+        element(by.name('login')).sendKeys("teste");
+        element(by.id('knowledges')).sendKeys("angular");
         element(by.id('add')).click();
         expect(element.all(by.css('[ng-view] td')).then(function(items) {
 

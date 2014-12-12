@@ -19,14 +19,16 @@ angular.module('ciandtDojos.senseis', ['ngRoute'])
     });
   }
 
-  $scope.addSensei = function () {
-    Sensei.save($scope.sensei, function() {
-      $scope.errorMessage = null;
-      $scope.load();
+  $scope.addSensei = function (valid) {
+    if (valid) {
+      Sensei.save($scope.sensei, function() {
+        $scope.errorMessage = null;
+        $scope.load();
 
-    }, function(response){
-      $scope.errorMessage = "Server is down";
-    });
+      }, function(response){
+        $scope.errorMessage = "Server is down";
+      });
+    }
   }
 
   $scope.load();

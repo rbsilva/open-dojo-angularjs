@@ -7,7 +7,9 @@ angular.module('ciandtDojos', [
   'ciandtDojos.dojos',
   'ciandtDojos.senseis',
   'ciandtDojos.version',
-  'ciandtDojos.development'
+  'ciandtDojos.development',
+  'ciandtDojos.form',
+  'ciandtDojos.cpf'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dojos'});

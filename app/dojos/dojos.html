@@ -9,18 +9,10 @@
       <div class="col-md-4 column">
         <form class="form-horizontal" role="form" name="formDojo" novalidate ng-submit="addDojo(formDojo.$valid)">
           <div class="form-group">
-            <label for="name" class="col-sm-3 control-label">Nome</label>
-            <div class="col-sm-8">
-              <input ng-model="dojo.name" type="text" class="form-control" name="name" required />
-              <span class="error" ng-show="formDojo.name.$error.required && submitted">
-        Required!</span><br>
-            </div>
+            <form-input label="Nome" model="dojo.name" input-name="name" input-required="true" input-form="formDojo"></form-input>
           </div>
           <div class="form-group">
-             <label for="description" class="col-sm-3 control-label">Descrição</label>
-            <div class="col-sm-8">
-              <input ng-model="dojo.description" type="text" class="form-control" id="description" />
-            </div>
+            <form-input label="Descrição" model="dojo.description" input-name="dojoDescription" input-required="true" input-form="formDojo"></form-input>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
